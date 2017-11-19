@@ -51,9 +51,9 @@ class UserList {
     }
   }
   
-  public List<User> this[string Name] {
+  public List<User> this[string Search] {
     get {
-      Regex rgx = new Regex(Name, RegexOptions.IgnoreCase);
+      Regex rgx = new Regex(Search, RegexOptions.IgnoreCase);
       return userList.FindAll(user => rgx.IsMatch(user.Email) || rgx.IsMatch(user.FirstName) || rgx.IsMatch(user.LastName));
     }
   }
