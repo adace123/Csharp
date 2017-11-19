@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 class Program {
   public static void Main(string[] args) {
@@ -9,10 +10,9 @@ class Program {
     list.Add(new User("John", "Doe", "jdoe@gmail.com"));
     list.Add(new User("Jane", "Doe", "janedoe@gmail.com"));
     
-    var matches = list["doe"];
-    foreach(User u in matches) {
-      Console.WriteLine(u + "\n");
-    }
+    if(list["doe"].Any(user => user != null)) {
+      list["doe"].ForEach(user => Console.WriteLine("{0}\n", user));
+    } else Console.WriteLine("User not found");
   }
 }
 
